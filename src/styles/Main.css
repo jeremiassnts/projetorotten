@@ -1,0 +1,53 @@
+.menu-container {
+    background: #F35A5A;
+    width: 40vh;
+    border: 0;
+    height: 100vh;
+}
+
+.menu-container .title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
+    cursor: pointer;
+}
+
+.menu-container .title img {
+    align-self: center;
+    width: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.menu-container ul {
+    list-style: none;
+}
+
+.menu-container ul li {
+    padding: 0.25rem 0.5rem;
+    margin: auto;
+}
+
+.menu-container ul li button {
+    background: white;
+    border: 0;
+    border-radius: 0.2rem;
+    color: #F35A5A;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: -webkit-fill-available;
+    text-align: center;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu-container ul li button img {
+    width: 1.3rem;
+    margin-right: 0.5rem;
+}
