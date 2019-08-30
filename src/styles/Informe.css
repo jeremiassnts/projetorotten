@@ -1,0 +1,24 @@
+.informe-container {
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.informe-banner {
+    width: 50vw;
+    background: #F35A5A;
+    border: 0;
+    border-radius: 0.2rem;
+    color: white;
+    box-shadow: #80808073 0 10px 20px;
+    text-align: center;
+    padding: 3rem 1rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    margin: auto;
+}
+
+.informe-banner span:last-child {
+    padding-top: 2rem;
+}
