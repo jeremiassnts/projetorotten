@@ -1,6 +1,6 @@
 .menu-container {
     background: #F35A5A;
-    width: 40vh;
+    width: 18vw;
     border: 0;
     height: 100vh;
 }
@@ -32,10 +32,8 @@
 }
 
 .menu-container ul li button {
-    background: white;
     border: 0;
     border-radius: 0.2rem;
-    color: #F35A5A;
     font-size: 1.1rem;
     font-weight: bold;
     width: -webkit-fill-available;
@@ -45,6 +43,20 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.off {
+    color: #F35A5A;
+    background: white;
+}
+
+.on {
+    color: white;
+    background: #CF000F;
+}
+
+.on img {
+    filter: brightness(5);
 }
 
 .menu-container ul li button img {
