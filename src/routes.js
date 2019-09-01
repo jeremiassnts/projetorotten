@@ -22,7 +22,7 @@ export default function Routes() {
 
 export function InsideRoutes() {
     return (
-        <BrowserRouter basename="/main">
+        <BrowserRouter basename="/main" forceRefresh={true}>
             <Route path='/' exact component={Informe} />
             <Route path="/consultas" component={Consultas} />
             <Route path="/producoes" exact component={Producoes} />

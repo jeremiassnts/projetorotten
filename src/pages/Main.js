@@ -28,25 +28,25 @@ export default function Main(props) {
                 </div>
                 <ul>
                     <li>
-                        <button title="consultas" onClick={handleClick} className={activeButton.endsWith("consultas") ? "on" : "off"}>
+                        <button title="consultas" onClick={handleClick} className={activeButton.includes("consultas") ? "on" : "off"}>
                             <img src={postgresql} alt="PostgreSQL" />
                             Consultas
                             </button>
                     </li>
                     <li>
-                        <button title="producoes" onClick={handleClick} className={activeButton.endsWith("producoes") ? "on" : "off"}>
+                        <button title="producoes" onClick={handleClick} className={activeButton.includes("producoes") ? "on" : "off"}>
                             <img src={movie} alt="Produção" />
                             Produções
                         </button>
                     </li>
                     <li>
-                        <button title="artistas" onClick={handleClick} className={activeButton.endsWith("artistas") ? "on" : "off"}>
+                        <button title="artistas" onClick={handleClick} className={activeButton.includes("artistas") ? "on" : "off"}>
                             <img src={person} alt="Artista" />
                             Artistas
                         </button>
                     </li>
                     <li>
-                        <button title="estudios" onClick={handleClick} className={activeButton.endsWith("estudios") ? "on" : "off"}>
+                        <button title="estudios" onClick={handleClick} className={activeButton.includes("estudios") ? "on" : "off"}>
                             <img src={industry} alt="Estúdio" />
                             Estúdios
                         </button>

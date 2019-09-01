@@ -2,9 +2,9 @@ import React from 'react'
 import '../styles/List.css'
 
 export default function List(props) {
-    const { history, elements, arg1, arg2, path, credentials } = props;
+    const { history, elements, arg1, arg2, path, credentials, height = 100 } = props;
     return (
-        <div className="elements-container">
+        <div className="elements-container" style={{ height: `${height}vh` }}>
             {elements.map(element =>
                 <div className="element-container" key={element.id} onClick={() => history.push(`/${path}/${element.id}`, credentials)}>
                     <footer>

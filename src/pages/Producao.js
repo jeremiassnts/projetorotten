@@ -35,7 +35,7 @@ export default function Producao(props) {
                     </div>
                     <p>{producao.sinopse}</p>
                     <div className="criticas-container">
-                        {producao.criticas.map(critica => <div className="critica-container">
+                        {producao.criticas.map(critica => <div className="critica-container" key={critica.id}>
                             <span>{critica.critica}</span>
                             <footer>
                                 <span>{critica.nome} - {critica.entidade}</span>
