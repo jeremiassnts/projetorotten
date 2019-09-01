@@ -21,3 +21,23 @@ body, input, button {
   display: flex;
   flex-direction: row;
 }
+
+.panel-container {
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  border-left-color: #F35A5A;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: spin 1.2s linear infinite;
+  margin: 5rem auto;
+}

@@ -1,0 +1,92 @@
+.specific-producao-container {
+    padding-top: 1rem;
+    width: 80vw;
+}
+
+.specific-producao-container p {
+    border-radius: 0.2rem;
+    box-shadow: #80808073 0 10px 20px;
+    color: #F35A5A;
+    margin-top: 1rem;
+    background: white;
+    padding: 2rem;
+}
+
+.producao-principal-container {
+    background: #FF8282;
+    color: white;
+    box-shadow: #80808073 0 10px 20px;
+    border-radius: 0.2rem;
+    padding: 4.5rem 2rem 2rem 2rem;
+    font-weight: bold;
+}
+
+.producao-principal-container div:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.producao-principal-container div:first-child span:first-child {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    justify-self: left;
+}
+
+.producao-principal-container div:first-child span:last-child {
+    font-size: 2rem;
+    justify-self: right;
+}
+
+.producao-principal-container div:last-child {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-items: left;
+    width: 30vw;
+}
+
+.criticas-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.critica-container {
+    background: #F35A5A;
+    border-radius: 0.2rem;
+    width: 20vw;
+    padding-top: 1rem;
+    font-weight: bold;
+    box-shadow: #80808073 0 10px 20px;
+    text-align: center;
+}
+
+.critica-container span:first-child {
+    color: white;
+    text-align: left;
+    padding: 0 1rem;
+}
+
+.critica-container footer {
+    border-radius: 0 0 0.2rem 0.2rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.critica-container footer span:first-child {
+    padding-top: 0.5rem;
+    text-align: center;
+    color: #F35A5A;
+    font-size: 1rem;
+}
+
+.critica-container footer span:last-child {
+    text-align: center;
+    color: #FF7B7B;
+    padding: 0.2rem 0 0.5rem 0;
+    font-size: 0.8rem;
+}

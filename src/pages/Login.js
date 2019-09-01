@@ -60,7 +60,7 @@ export default function Login({ history }) {
                     <label>Senha</label>
                     <input type="password" value={password} onChange={e => setPasswordValue(e.target.value)} />
                 </div>
-                <button type="submit">{loading ? <div className="loader"></div> : "Acessar"}</button>
+                <button type="submit">{loading ? <div className="loader" style={{ margin: "auto" }}></div> : "Acessar"}</button>
             </form>
         </div>
     )

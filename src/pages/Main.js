@@ -13,11 +13,12 @@ export default function Main(props) {
     const [activeButton, setActiveButton] = useState('')
     async function handleClick(e) {
         const title = e.target.title;
+        // if (activeButton.endsWith(title) && title !== "") return;
         history.push(`/main/${title}`, credentials)
     }
     useEffect(() => {
         setActiveButton(history.location.pathname)
-    },[history.location.pathname])
+    }, [history.location.pathname])
     return (
         <div className="main-container">
             <div className="menu-container">

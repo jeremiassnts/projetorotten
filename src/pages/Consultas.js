@@ -32,13 +32,13 @@ export default function Consultas(props) {
         setLoadingQuery(false);
     }
     return (
-        <div className="consultas-container">
+        <div className="panel-container">
             {loading
                 ? <div className="loader" />
                 : <div className="content-container">
                     <ul className="query-ul">
                         {queries.map(query =>
-                            <li style={
+                            <li key={query.id} style={
                                 currentQueryId === query.id ? {
                                     background: "#F35A5A",
                                     color: "white"
