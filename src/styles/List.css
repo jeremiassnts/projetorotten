@@ -9,7 +9,7 @@
 .element-container {
     background: #EEEEEE;
     box-shadow: #80808073 0 10px 20px;
-    border-radius: 0.2rem 0.2rem 0 0;
+    border-radius: 0.2rem;
     height: 14rem;
     width: 10rem;
     display: flex;

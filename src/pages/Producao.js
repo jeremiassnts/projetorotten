@@ -28,7 +28,7 @@ export default function Producao(props) {
                         </div>
                         <div>
                             <span>{producao.classificacaoindicativa}</span>
-                            {producao.duracao !== null ? <span>{producao.duracao}</span> : ""}
+                            {producao.duracao !== null ? <span>{getDuracao(producao.duracao)}</span> : ""}
                             <span>{producao.estudio ? producao.estudio : producao.emissora}</span>
                             <span>{producao.pais}</span>
                         </div>
@@ -47,4 +47,10 @@ export default function Producao(props) {
             }
         </div>
     )
+}
+function getDuracao(total) {
+    let horas = Math.floor(total / 60)
+    let parcialMinutos = total / 60 - horas
+    let minutos = Math.ceil(60 * parcialMinutos)
+    return `${horas}h ${minutos}min`
 }
