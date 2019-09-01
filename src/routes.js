@@ -25,11 +25,11 @@ export function InsideRoutes() {
         <BrowserRouter basename="/main">
             <Route path='/' exact component={Informe} />
             <Route path="/consultas" component={Consultas} />
-            <Route path="/producoes" component={Producoes} />
+            <Route path="/producoes" exact component={Producoes} />
             <Route path="/producoes/:producaoId" component={Producao} />
-            <Route path="/artistas" component={Artistas} />
+            <Route path="/artistas" exact component={Artistas} />
             <Route path="/artistas/:artistaId" component={Artista} />
-            <Route path="/estudios" component={Estudios} />
+            <Route path="/estudios" exact component={Estudios} />
             <Route path="/estudios/:estudioId" component={Estudio} />
         </BrowserRouter>
     )

@@ -1,0 +1,45 @@
+.elements-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 4rem;
+    padding: 3rem;
+    height: 100vh;
+    overflow: auto;
+}
+
+.element-container {
+    background: #EEEEEE;
+    box-shadow: #80808073 0 10px 20px;
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 14rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+}
+
+.element-container:last-child {
+    margin-bottom: 3rem;
+}
+
+.element-container footer {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    border-radius: 0 0 0.2rem 0.2rem;
+}
+
+.element-container footer span:first-child {
+    color: #F35A5A;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.element-container footer span:last-child {
+    color: #FF7B7B;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
