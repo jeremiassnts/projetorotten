@@ -1,0 +1,27 @@
+.artista-container {
+    padding: 5rem 2rem 2rem 2rem;
+    background: #FF8282;
+    border-radius: 0.2rem;
+    box-shadow: #80808073 0 10px 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    width: 80vw;
+}
+
+.artista-container div:first-child {
+    text-align: left;
+}
+
+.artista-container div:first-child span {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.artista-container div:last-child {
+    margin-top: 2.5rem;
+}
+
+.artista-container div:last-child span {
+    margin-right: 1.5rem;
+}
