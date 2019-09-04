@@ -23,7 +23,7 @@ export default function Producoes(props) {
         <div className="panel-container">
             {loading
                 ? <div className="loader" />
-                : <List elements={producoes} path="producoes" credentials={credentials} arg1="titulo" arg2="datalancamento" history={history} />
+                : <List elements={producoes} path="producoes" credentials={credentials} arg1="titulo" arg2="datalancamento" history={history} options={true} setLoading={setLoading}/>
             }
         </div>
     )
