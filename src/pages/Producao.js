@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react'
+import { useGlobal } from 'reactn'
 import api from '../services/api'
 import '../styles/Producao.css'
 
-export default function Producao(props) {
+export default function Producao({ match }) {
     const [loading, setLoading] = useState(true)
+    const [host] = useGlobal('host')
+    const [port] = useGlobal('port')
+    const [database] = useGlobal('database')
+    const [user] = useGlobal('user')
+    const [password] = useGlobal('password')
     const [producao, setProducao] = useState({})
-    const { state: credentials } = props.location;
-    const { producaoId } = props.match.params;
+    const { producaoId } = match.params;
     useEffect(() => {
         async function loadData() {
             setLoading(true)
+            const credentials = { host, port, database, user, password }
             const { data } = await api.post(`/producoes/${producaoId}`, credentials)
             setProducao(data)
             setLoading(false)
         }
         loadData()
-    }, [producaoId, credentials])
+    }, [producaoId])
     return (
         <div className="panel-container">
             {loading

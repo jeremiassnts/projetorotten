@@ -7,14 +7,11 @@ import person from '../assets/person.svg'
 import industry from '../assets/industry.svg'
 import '../styles/Main.css'
 
-export default function Main(props) {
-    const { history } = props;
-    const { state: credentials } = props.location;
+export default function Main({ history }) {
     const [activeButton, setActiveButton] = useState('')
     async function handleClick(e) {
         const title = e.target.title;
-        // if (activeButton.endsWith(title) && title !== "") return;
-        history.push(`/main/${title}`, credentials)
+        history.push(`/main/${title}`)
     }
     useEffect(() => {
         setActiveButton(history.location.pathname)

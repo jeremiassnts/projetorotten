@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import api from '../services/api'
 import List from './List'
+import { useGlobal } from 'reactn'
 import '../styles/Artista.css'
 
-export default function Artista(props) {
+export default function Artista({ history, match }) {
     const [loading, setLoading] = useState(true)
     const [artista, setArtista] = useState({})
-    const { artistaId } = props.match.params
-    const { history } = props
-    const { state: credentials } = props.location;
+    const [host] = useGlobal('host')
+    const [port] = useGlobal('port')
+    const [database] = useGlobal('database')
+    const [user] = useGlobal('user')
+    const [password] = useGlobal('password')
+    const { artistaId } = match.params
     useEffect(() => {
         async function loadData() {
             setLoading(true)
+            const credentials = { host, port, database, user, password }
             const { data } = await api.post(`/artistas/${artistaId}`, credentials)
             setArtista(data)
             setLoading(false)
         }
         loadData()
-    }, [credentials, artistaId])
+    }, [artistaId])
     return (
         <div className="panel-container">
             {loading
@@ -32,7 +37,7 @@ export default function Artista(props) {
                             <span>{artista.pais}</span>
                         </div>
                     </div>
-                    <List elements={artista.producoes} path="producoes" credentials={credentials} arg1="titulo" arg2="nome" history={history} height={60} />
+                    <List elements={artista.producoes} path="producoes" arg1="titulo" arg2="nome" history={history} height={60} />
                 </div>
             }
         </div>

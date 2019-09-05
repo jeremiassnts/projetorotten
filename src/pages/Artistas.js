@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react'
+import { useGlobal } from 'reactn'
 import List from './List'
 import api from '../services/api'
 
-export default function Artistas(props) {
+export default function Artistas({ history }) {
     const [loading, setLoading] = useState(true)
+    const [host] = useGlobal('host')
+    const [port] = useGlobal('port')
+    const [database] = useGlobal('database')
+    const [user] = useGlobal('user')
+    const [password] = useGlobal('password')
     const [artistas, setArtistas] = useState([])
-    const { state: credentials } = props.location
-    const { history } = props;
     useEffect(() => {
         async function loadData() {
             setLoading(true)
+            const credentials = { host, port, database, user, password }
             const { data } = await api.post(`/artistas`, credentials)
             setArtistas(data)
             setLoading(false)
         }
         loadData()
-    }, [credentials])
+    }, [host, port, database, user, password])
     return (
         <div className="panel-container">
             {loading
                 ? <div className="loader" />
-                : <List elements={artistas} path="artistas" credentials={credentials} arg1="nome" history={history} />
+                : <List elements={artistas} path="artistas" arg1="nome" history={history} />
             }
         </div>
     )

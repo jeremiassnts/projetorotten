@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import api from '../services/api'
+import { useGlobal } from 'reactn'
 import List from './List'
 import '../styles/Estudio.css'
 
-export default function Estudio(props) {
+export default function Estudio({ history, match }) {
     const [loading, setLoading] = useState(true)
     const [estudio, setEstudio] = useState({})
-    const { estudioId } = props.match.params
-    const { history } = props
-    const { state: credentials } = props.location;
+    const { estudioId } = match.params
+    const [host] = useGlobal('host')
+    const [port] = useGlobal('port')
+    const [database] = useGlobal('database')
+    const [user] = useGlobal('user')
+    const [password] = useGlobal('password')
     useEffect(() => {
         async function loadData() {
             setLoading(true)
+            const credentials = { host, port, database, user, password }
             const { data } = await api.post(`/estudios/${estudioId}`, credentials)
             data.producoes.forEach(prod => {
                 prod.datalancamento = new Date(Date.parse(prod.datalancamento)).getFullYear()
@@ -20,7 +25,7 @@ export default function Estudio(props) {
             setLoading(false)
         }
         loadData()
-    }, [credentials, estudioId])
+    }, [estudioId])
     return (
         <div className="panel-container">
             {loading
@@ -35,7 +40,7 @@ export default function Estudio(props) {
                             <span>{new Date(Date.parse(estudio.fundacao)).getFullYear()}</span>
                         </div>
                     </div>
-                    <List elements={estudio.producoes} path="producoes" credentials={credentials} arg1="titulo" arg2="datalancamento" history={history} height={60} />
+                    <List elements={estudio.producoes} path="producoes" arg1="titulo" arg2="datalancamento" history={history} height={60} />
                 </div>
             }
         </div>

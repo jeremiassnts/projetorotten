@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import { useGlobal } from 'reactn'
 import api from '../services/api'
 import '../styles/Login.css'
 
 export default function Login({ history }) {
     const [loading, setLoadingValue] = useState(false)
-    const [host, setHostValue] = useState("ec2-50-16-197-244.compute-1.amazonaws.com")
-    const [port, setPortValue] = useState(5432)
-    const [database, setDatabaseValue] = useState("dagf3knmquj0kj")
-    const [user, setUserValue] = useState("jbqcgbigvtunjd")
-    const [password, setPasswordValue] = useState("ef76e69d9b77990b51d0a39228d0f2253ac839990f99f07e72467ee2eb8a48a7")
+    const [host, setHostValue] = useGlobal('host')
+    const [port, setPortValue] = useGlobal('port')
+    const [database, setDatabaseValue] = useGlobal('database')
+    const [user, setUserValue] = useGlobal('user')
+    const [password, setPasswordValue] = useGlobal('password')
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -28,7 +29,7 @@ export default function Login({ history }) {
                 alert(data.message)
                 setLoadingValue(false);
             } else {
-                history.push("/main", pg);
+                history.push("/main");
             }
         }
         catch (err) {
