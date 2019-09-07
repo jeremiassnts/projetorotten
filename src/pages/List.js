@@ -28,7 +28,7 @@ export default function List(props) {
                     history.push(`/edit/${elementId}`)
                     break;
                 default:
-                    console.log('novo')
+                    history.push(`/insert/${elementId}`)
                     break;
             }
         } else {
@@ -50,9 +50,9 @@ export default function List(props) {
                 </div>
             )}
             {options
-                ? <div title="Novo" className="new" onClick={(ev) => { handleClick(ev) }}><img src={plus} alt="new" title="Novo" /></div>
+                ? <div title="Novo" className="new" onClick={handleClick}><img src={plus} alt="new" title="Novo" /></div>
                 : ""
-            }
-        </div>
+}
+        </div >
     )
 }

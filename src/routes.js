@@ -11,6 +11,7 @@ import Artista from './pages/Artista'
 import Producao from './pages/Producao'
 import Estudio from './pages/Estudio'
 import Edit from './pages/Edit'
+import Insert from './pages/Insert'
 
 export default function Routes() {
     return (
@@ -29,6 +30,7 @@ export function InsideRoutes() {
             <Route path="/producoes" exact component={Producoes} />
             <Route path="/producoes/:producaoId" component={Producao} />
             <Route path="/edit/:producaoId" component={Edit} />
+            <Route path="/insert/:producaoId" component={Insert} />
             <Route path="/artistas" exact component={Artistas} />
             <Route path="/artistas/:artistaId" component={Artista} />
             <Route path="/estudios" exact component={Estudios} />

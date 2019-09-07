@@ -54,7 +54,7 @@ export default function Producao({ match }) {
         </div>
     )
 }
-function getDuracao(total) {
+export function getDuracao(total) {
     let horas = Math.floor(total / 60)
     let parcialMinutos = total / 60 - horas
     let minutos = Math.ceil(60 * parcialMinutos)

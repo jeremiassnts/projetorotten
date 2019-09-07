@@ -66,6 +66,7 @@
 
 .registers-container table {
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 .registers-container table thead {}
