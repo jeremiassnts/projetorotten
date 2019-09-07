@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useGlobal } from 'reactn'
 import api from '../services/api'
+import { getDuracao } from './Producao'
 import '../styles/Consultas.css'
 
 export default function Consultas() {
@@ -30,10 +31,21 @@ export default function Consultas() {
         setLoadingQuery(true);
         const credentials = { host, port, database, user, password }
         const { data } = await api.post(`/scripts/${queryId}`, credentials)
-        setQueryRows(data.rows)
+        setQueryRows(data.rows.map(row => {
+            if (row.datalancamento) {
+                row.datalancamento = new Date(Date.parse(row.datalancamento)).toLocaleDateString()
+            }
+            if (row.orcamento) {
+                row.orcamento = `R$ ${(row.orcamento).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
+            }
+            if (row.duracao) {
+                row.duracao = getDuracao(row.duracao)
+            }
+            return row;
+        }))
         setSqlQuery(data.sql)
         //extrai colunas
-        setSqlColumns(Object.keys(data.rows[0]))
+        setSqlColumns(data.rows.length > 0 ? Object.keys(data.rows[0]) : [])
         setCurrentQueryId(data.id)
         setLoadingQuery(false);
     }
@@ -70,8 +82,8 @@ export default function Consultas() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {queryRows.map(row => <tr>
-                                                {Object.values(row).map(value => <td>{value}</td>)}
+                                            {queryRows.map((row, index) => <tr key={index}>
+                                                {Object.values(row).map((value, index) => <td key={index}>{value}</td>)}
                                             </tr>)}
                                         </tbody>
                                     </table>
